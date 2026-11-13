@@ -7,7 +7,6 @@
     <title>Guadalupe Vargas | Portafolio</title>
     <meta name="description" content="Portafolio de proyectos de Ingeniería en Software, desarrollo web, aplicaciones móviles y sistemas.">
 
-    <!-- Open Graph / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://guadalupevargas07.github.io/">
     <meta property="og:title" content="Guadalupe Vargas | Portafolio">
@@ -20,9 +19,133 @@
     <!-- Fuentes Google: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <!-- Iconos Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#1f1433',
+                        brand: {
+                            50: '#faf7ff',
+                            100: '#f3ecff',
+                            200: '#e7d9ff',
+                            300: '#d4bcff',
+                            400: '#b794f6',
+                            500: '#9b6df0',
+                            600: '#8453e0',
+                            700: '#6d3fc4',
+                            800: '#54309a',
+                            900: '#3a2170',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdfbff;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        /* Fondo suave con manchas lavanda */
+        .soft-bg {
+            background:
+                radial-gradient(60rem 32rem at 10% -10%, rgba(183, 148, 246, 0.35), transparent 60%),
+                radial-gradient(50rem 30rem at 100% 15%, rgba(212, 188, 255, 0.55), transparent 60%),
+                radial-gradient(55rem 30rem at 0% 60%, rgba(231, 217, 255, 0.6), transparent 60%),
+                radial-gradient(50rem 30rem at 100% 90%, rgba(212, 188, 255, 0.45), transparent 60%),
+                #fbf8ff;
+            background-attachment: fixed;
+        }
+
+        .title-accent::after {
+            content: "";
+            display: block;
+            width: 64px;
+            height: 5px;
+            margin: 14px auto 0;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #b794f6, #6d3fc4);
+        }
+
+        /* Scrollbar morada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3ecff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #b794f6;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8453e0;
+        }
+
+        /* Animación suave de entrada */
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .float-in {
+            animation: floatIn 0.9s ease-out both;
+        }
+
+        .float-in-2 {
+            animation: floatIn 0.9s ease-out 0.15s both;
+        }
+
+        .float-in-3 {
+            animation: floatIn 0.9s ease-out 0.3s both;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 12px);
+            }
+        }
+
+        .drift {
+            animation: drift 9s ease-in-out infinite;
+        }
+
+        ::selection {
+            background: #d4bcff;
+            color: #1a1625;
+        }
+    </style>
 </head>
 
 <body class="soft-bg text-ink font-sans antialiased">
