@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guadalupe Vargas</title>
+    <link rel="icon" type="image/jpeg" href="./img/pin.png">
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes Google: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Iconos Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Configuración personalizada de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ink: '#1f1433',
+                        brand: {
+                            50: '#faf7ff',
+                            100: '#f3ecff',
+                            200: '#e7d9ff',
+                            300: '#d4bcff',
+                            400: '#b794f6',
+                            500: '#9b6df0',
+                            600: '#8453e0',
+                            700: '#6d3fc4',
+                            800: '#54309a',
+                            900: '#3a2170',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdfbff;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        /* Fondo suave con manchas lavanda */
+        .soft-bg {
+            background:
+                radial-gradient(60rem 32rem at 10% -10%, rgba(183, 148, 246, 0.35), transparent 60%),
+                radial-gradient(50rem 30rem at 100% 15%, rgba(212, 188, 255, 0.55), transparent 60%),
+                radial-gradient(55rem 30rem at 0% 60%, rgba(231, 217, 255, 0.6), transparent 60%),
+                radial-gradient(50rem 30rem at 100% 90%, rgba(212, 188, 255, 0.45), transparent 60%),
+                #fbf8ff;
+            background-attachment: fixed;
+        }
+
+        .title-accent::after {
+            content: "";
+            display: block;
+            width: 64px;
+            height: 5px;
+            margin: 14px auto 0;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #b794f6, #6d3fc4);
+        }
+
+        /* Scrollbar morada */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f3ecff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #b794f6;
+            border-radius: 999px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8453e0;
+        }
+
+        /* Animación suave de entrada */
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .float-in {
+            animation: floatIn 0.9s ease-out both;
+        }
+
+        .float-in-2 {
+            animation: floatIn 0.9s ease-out 0.15s both;
+        }
+
+        .float-in-3 {
+            animation: floatIn 0.9s ease-out 0.3s both;
+        }
+
+        @keyframes drift {
+
+            0%,
+            100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 12px);
+            }
+        }
+
+        .drift {
+            animation: drift 9s ease-in-out infinite;
+        }
+
+        ::selection {
+            background: #d4bcff;
+            color: #1a1625;
+        }
+    </style>
+</head>
+
+<body class="soft-bg text-ink font-sans antialiased">
+
+    <!-- ==========================================
+         1. HEADER FLOTANTE
+         ========================================== -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+            <nav
+                class="glass-header border border-brand-200/70 rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-xl shadow-brand-300/20">
+                <a href="#inicio" class="text-lg font-bold tracking-tight text-ink flex items-center gap-2 group">
+                    <img src="img/star2.jpg" alt="Guadalupe Vargas"
+                        class="w-9 h-9 object-contain shrink-0 group-hover:scale-125 transition-transform duration-300">
+                    <span>Duh<span class="text-brand-600">.dev</span></span>
+                </a>
+
+                <!-- Enlaces Desktop -->
+                <div class="hidden md:flex items-center space-x-1 text-sm font-medium text-slate-600">
+                    <a href="#inicio"
+                        class="px-3 py-1.5 rounded-lg hover:text-brand-700 hover:bg-brand-100 transition-all">Inicio</a>
+                    <a href="#sobre-mi"
+                        class="px-3 py-1.5 rounded-lg hover:text-brand-700 hover:bg-brand-100 transition-all">Sobre
+                        mí</a>
+                    <a href="#stack"
+                        class="px-3 py-1.5 rounded-lg hover:text-brand-700 hover:bg-brand-100 transition-all">Stack</a>
+                    <a href="#proyectos"
+                        class="px-3 py-1.5 rounded-lg hover:text-brand-700 hover:bg-brand-100 transition-all">Proyectos</a>
+                    <a href="#contacto"
+                        class="px-3 py-1.5 rounded-lg hover:text-brand-700 hover:bg-brand-100 transition-all">Contacto</a>
+                </div>
+
+                <!-- Botón Acción Directa -->
+                <div class="hidden md:block">
+                    <a href="#contacto"
+                        class="text-xs font-semibold px-4 py-2 bg-brand-600 hover:bg-brand-800 text-white rounded-xl shadow-lg shadow-brand-400/20 transition-all duration-300">
+                        Contáctame
+                    </a>
+                </div>
+
+                <!-- Botón Menú Mobile -->
+                <button id="mobile-menu-btn"
+                    class="md:hidden text-slate-500 hover:text-brand-700 focus:outline-none p-1"
+                    aria-label="Abrir menú">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </nav>
+        </div>
+
+        <!-- Menú Desplegable Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto px-4 mt-2">
+            <div
+                class="glass-header border border-brand-200/70 rounded-2xl p-4 space-y-2 text-sm font-medium text-slate-600 shadow-xl shadow-brand-300/20">
+                <a href="#inicio"
+                    class="mobile-link block px-3 py-2 rounded-lg hover:bg-brand-100 hover:text-brand-700">Inicio</a>
+                <a href="#sobre-mi"
+                    class="mobile-link block px-3 py-2 rounded-lg hover:bg-brand-100 hover:text-brand-700">Sobre mí</a>
+                <a href="#stack"
+                    class="mobile-link block px-3 py-2 rounded-lg hover:bg-brand-100 hover:text-brand-700">Stack</a>
+                <a href="#proyectos"
+                    class="mobile-link block px-3 py-2 rounded-lg hover:bg-brand-100 hover:text-brand-700">Proyectos</a>
+                <a href="#contacto"
+                    class="mobile-link block px-3 py-2 rounded-lg hover:bg-brand-100 hover:text-brand-700">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 space-y-24 md:space-y-32">
+
+        <!-- ==========================================
+             2. SECCIÓN HERO
+             ========================================== -->
+        <section id="inicio" class="min-h-[85vh] flex items-center justify-center relative overflow-hidden pt-12">
+            <!-- Destellos de fondo -->
+            <div
+                class="drift absolute top-1/4 left-1/2 w-96 h-96 bg-brand-400/40 rounded-full blur-3xl pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-10 right-10 w-72 h-72 bg-brand-300/50 rounded-full blur-3xl pointer-events-none">
+            </div>
+            <div class="absolute top-32 left-6 w-56 h-56 bg-brand-200/70 rounded-full blur-3xl pointer-events-none">
+            </div>
+
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-8 z-10">
+                <!-- Badge Estado -->
+                <div
+                    class="float-in inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100 border border-brand-300 text-xs text-brand-800 font-medium shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                    Disponible para nuevos proyectos y oportunidades
+                </div>
+
+                <!-- Título y Subtítulo -->
+                <div class="float-in-2 space-y-4">
+                    <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-ink">
+                        <span
+                            class="bg-gradient-to-r from-brand-600 via-brand-400 to-brand-700 bg-clip-text text-transparent">Guadalupe
+                            Vargas
+                        </span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-medium text-slate-500">
+                        Frontend Developer | Team Lead, Analyst, and QA
+                    </p>
+                </div>
+
+                <!-- Biografía Corta -->
+                <p class="float-in-3 text-slate-600 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                    Desarrolladora de software enfocada en crear arquitecturas escalables, servicios web robustos y
+                    experiencias frontend modernas. Siempre en constante aprendizaje y abierta a experimentar con nuevos
+                    retos y herramientas.
+                </p>
+
+                <!-- Botones de Acción -->
+                <div class="float-in-3 flex flex-wrap items-center justify-center gap-4 pt-4">
+                    <!-- Botón GitHub -->
+                    <a href="https://github.com/GuadalupeVargas07" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-brand-900 hover:bg-brand-700 text-white font-medium rounded-xl transition-all duration-300 shadow-lg shadow-brand-500/30">
+                        <i class="ph ph-github-logo text-xl"></i>
+                        <span>GitHub Profile</span>
+                    </a>
+
+                    <!-- Botón CV (abre el PDF en una pestaña nueva) -->
+                    <a href="docs/CV_GuadalupeVargas.pdf" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-xl shadow-lg shadow-brand-500/30 transition-all duration-300">
+                        <i class="ph ph-file-text text-xl"></i>
+                        <span>Descargar CV</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             SOBRE MÍ
+             ========================================== -->
+        <section id="sobre-mi" class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div
+                class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-8 md:p-10 shadow-xl shadow-brand-300/20 space-y-6 hover:border-brand-400 hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-300/30 transition-all duration-300 group">
+                <div class="flex items-center gap-3.5">
+                    <img src="img/star.jpg" alt="Guadalupe Vargas"
+                        class="w-12 h-12 rounded-xl object-cover border border-brand-300 shadow-sm shrink-0 group-hover:scale-105 transition-transform duration-300">
+                    <h2 class="text-2xl font-bold text-ink group-hover:text-brand-700 transition-colors">Sobre mí</h2>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-base">
+                    Me enfoco en transformar necesidades complejas en sistemas funcionales, modulares y de alto
+                    rendimiento.
+                    Con experiencia tanto en desarrollo <span class="text-brand-600 font-semibold">Backend</span> (APIs
+                    REST/SOAP,
+                    bases de datos y lógica de negocio) como <span class="text-brand-600 font-semibold">Frontend</span>
+                    (interfaces intuitivas y reactivas), complemento mi perfil técnico como
+                    <span class="text-brand-600 font-semibold">líder de equipo</span>, realizando
+                    <span class="text-brand-600 font-semibold">análisis de sistemas</span> y ejecutando procesos de
+                    <span class="text-brand-600 font-semibold">QA</span> para garantizar código mantenible y entregas de
+                    alta calidad.
+                </p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             3. STACK TECNOLÓGICO
+             ========================================== -->
+        <section id="stack" class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="space-y-4 text-center mb-12">
+                <h2 class="title-accent text-3xl sm:text-4xl font-extrabold text-brand-900">Stack Tecnológico</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">Herramientas, lenguajes y marcos de trabajo que utilizo para
+                    dar vida a los proyectos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Backend -->
+                <div
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-2xl p-6 hover:border-brand-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-300/25 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 bg-brand-100 text-brand-600 rounded-xl">
+                            <i class="ph ph-cpu text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-ink">Backend & APIs</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-coffee text-brand-600"></i> Java 21
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-leaf text-brand-600"></i> Spring Boot
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-node-tree text-brand-600"></i> Node.js
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-lightning text-brand-600"></i> Express.js
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-code text-brand-600"></i> PHP
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-plugs-connected text-brand-600"></i> REST / SOA
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-key text-brand-600"></i> JWT
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Frontend & Móvil -->
+                <div
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-2xl p-6 hover:border-brand-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-300/25 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 bg-brand-100 text-brand-600 rounded-xl">
+                            <i class="ph ph-browsers text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-ink">Frontend & Móvil</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-atom text-brand-600"></i> Angular
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-globe text-brand-600"></i> Next.js
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-atom text-brand-600"></i> React
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-device-mobile text-brand-600"></i> Ionic
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-android-logo text-brand-600"></i> Kotlin
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-file-ts text-brand-600"></i> TypeScript
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-file-js text-brand-600"></i> JavaScript
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-palette text-brand-600"></i> Tailwind CSS
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-file-html text-brand-600"></i> HTML
+                        </span>
+                    </div>
+                </div>
+
+                <!-- BD & Tools -->
+                <div
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-2xl p-6 hover:border-brand-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-300/25 transition-all duration-300">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="p-2.5 bg-brand-100 text-brand-600 rounded-xl">
+                            <i class="ph ph-database text-2xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-ink">BD & Tools</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-database text-brand-600"></i> PostgreSQL
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-database text-brand-600"></i> MySQL
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-bolt text-brand-600"></i> Supabase
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-git-branch text-brand-600"></i> Git
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-github-logo text-brand-600"></i> GitHub
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-paper-plane-tilt text-brand-600"></i> Postman
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-hard-drives text-brand-600"></i> XAMPP
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-android-logo text-brand-600"></i> Android Studio
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-code text-brand-600"></i> VS Code
+                        </span>
+                        <span
+                            class="px-3 py-1.5 bg-brand-100 border border-brand-300 rounded-xl text-xs font-semibold text-brand-800 flex items-center gap-1.5">
+                            <i class="ph ph-cube text-brand-600"></i> NetBeans
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             4. PROYECTOS DESTACADOS
+             (Orden: 1. En producción | 2. Completados | 3. En desarrollo)
+             ========================================== -->
+        <section id="proyectos" class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="space-y-4 text-center mb-12">
+                <h2 class="title-accent text-3xl sm:text-4xl font-extrabold text-brand-900">Proyectos Destacados</h2>
+                <p class="text-slate-500 max-w-xl mx-auto">Una selección de desarrollos recientes, aplicaciones y
+                    arquitecturas que he construido.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 1. EN PRODUCCIÓN: Punto_RID -->
+                <article
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-5 md:p-6 flex flex-col justify-between hover:border-brand-400 hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-300/30 group">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Punto de
+                                    Venta</span>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-brand-800 group-hover:text-brand-600 transition-colors">
+                                    Punto_RID</h3>
+                                <div class="pt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                        En producción
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-2 bg-brand-100 text-brand-600 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shrink-0">
+                                <i class="ph ph-shopping-cart text-xl"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Sistema integral de punto de venta para la gestión eficiente de productos, clientes y ventas
+                            en tiempo real, respaldado por un backend seguro y facturación electrónica.
+                        </p>
+
+                        <ul class="space-y-1 text-xs text-slate-600 pt-1">
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Autenticación con JWT, Refresh Tokens, control de roles y logs de
+                                    auditoría.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Emisión de facturas electrónicas mediante integración con la API de
+                                    Facturama.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Node.js</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Express.js</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">MySQL</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">JWT</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Facturama
+                                API</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mt-4 border-t border-brand-200/60">
+                        <a href="https://github.com/Arreolax/Punto_RID" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-brand-600 transition-colors">
+                            <i class="ph ph-github-logo text-lg"></i>
+                            <span>Ver Repositorio en GitHub</span>
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 2. COMPLETADO: Servicios_Laboratorio -->
+                <article
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-5 md:p-6 flex flex-col justify-between hover:border-brand-400 hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-300/30 group">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <span
+                                    class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Arquitectura
+                                    SOA</span>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-brand-800 group-hover:text-brand-600 transition-colors">
+                                    Servicios_Laboratorio</h3>
+                                <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-200">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                        Completado
+                                    </span>
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 border border-brand-300">
+                                        <i class="ph ph-code text-brand-600"></i>
+                                        Reto Práctico
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-2 bg-brand-100 text-brand-600 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shrink-0">
+                                <i class="ph ph-git-merge text-xl"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Sistema distribuido para el préstamo y mantenimiento de equipos de laboratorio bajo
+                            Arquitectura Orientada a Servicios (SOA), con servicios independientes y consumidores web.
+                        </p>
+
+                        <ul class="space-y-1 text-xs text-slate-600 pt-1">
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Comunicación REST entre servicios de Equipos, Préstamos y Mantenimiento.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Bloqueo automático de disponibilidad por fallas y bases de datos aisladas en
+                                    PostgreSQL.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Java
+                                21</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Spring
+                                Boot</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">PostgreSQL</span>
+                            <span class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">REST
+                                API</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mt-4 border-t border-brand-200/60">
+                        <a href="https://github.com/GuadalupeVargas07/Servicios_Laboratorio" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-brand-600 transition-colors">
+                            <i class="ph ph-github-logo text-lg"></i>
+                            <span>Ver Repositorio en GitHub</span>
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 3. COMPLETADO: BLE Radar -->
+                <article
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-5 md:p-6 flex flex-col justify-between hover:border-brand-400 hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-300/30 group">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Móvil &
+                                    IoT</span>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-brand-800 group-hover:text-brand-600 transition-colors">
+                                    BLE Radar</h3>
+                                <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-200">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                        Completado
+                                    </span>
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 border border-brand-300">
+                                        <i class="ph ph-lightning text-brand-600"></i>
+                                        Reto Móvil · 3 Días
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-2 bg-brand-100 text-brand-600 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shrink-0">
+                                <i class="ph ph-broadcast text-xl"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aplicación móvil Android para detección, estimación de proximidad y lectura GATT de
+                            dispositivos Bluetooth Low Energy, desarrollada en equipo en un reto de 3 días.
+                        </p>
+
+                        <ul class="space-y-1 text-xs text-slate-600 pt-1">
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Diseño de base de datos MySQL y desarrollo de APIs REST en PHP.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Clasificación por señal RSSI, lectura GATT y sincronización en red local
+                                    (LAN).</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Ionic</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Capacitor</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">PHP</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">MySQL</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Axios</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mt-4 border-t border-brand-200/60">
+                        <a href="https://github.com/GuadalupeVargas07/BLE_Radar" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-brand-600 transition-colors">
+                            <i class="ph ph-github-logo text-lg"></i>
+                            <span>Ver Repositorio en GitHub</span>
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 4. COMPLETADO: Clend App -->
+                <article
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-5 md:p-6 flex flex-col justify-between hover:border-brand-400 hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-300/30 group">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Móvil &
+                                    Productividad</span>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-brand-800 group-hover:text-brand-600 transition-colors">
+                                    Clend App</h3>
+                                <div class="flex flex-wrap items-center gap-1.5 pt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-50 text-orange-700 border border-orange-200">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                                        Completado
+                                    </span>
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-700 border border-brand-300">
+                                        <i class="ph ph-android-logo text-brand-600"></i>
+                                        Android Nativo
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-2 bg-brand-100 text-brand-600 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shrink-0">
+                                <i class="ph ph-timer text-xl"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aplicación Android nativa de productividad y gamificación con gestión de tareas, notas,
+                            sistema de rangos, modo estudio anti-distracciones y minijuegos mentales.
+                        </p>
+
+                        <ul class="space-y-1 text-xs text-slate-600 pt-1">
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Desarrollo del Modo Enfoque (Foreground Service, audio ambiental) y Calculadora
+                                    con juego contrarreloj.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Arquitectura MVVM con Room Database, Coroutines/Flow y Material Design 3.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Kotlin</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Android
+                                SDK</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">MVVM</span>
+                            <span class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Room
+                                DB</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Material
+                                3</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mt-4 border-t border-brand-200/60">
+                        <a href="https://github.com/Arreolax/ClendApp" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-brand-600 transition-colors">
+                            <i class="ph ph-github-logo text-lg"></i>
+                            <span>Ver Repositorio en GitHub</span>
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 5. EN DESARROLLO: SOPHIA WEB -->
+                <article
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-5 md:p-6 flex flex-col justify-between hover:border-brand-400 hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-300/30 group">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Sistema de
+                                    Gestión TI</span>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-brand-800 group-hover:text-brand-600 transition-colors">
+                                    SOPHIA WEB</h3>
+                                <div class="pt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+                                        En desarrollo
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-2 bg-brand-100 text-brand-600 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shrink-0">
+                                <i class="ph ph-headset text-xl"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Portal web de operaciones y soporte TI (Support Operations Human IA) con tableros
+                            diferenciados para usuarios y personal técnico, respaldado por un asistente de IA.
+                        </p>
+
+                        <ul class="space-y-1 text-xs text-slate-600 pt-1">
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Enrutamiento por roles (admin, técnico, usuario) y cookies HTTP-only
+                                    seguras.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Rutas API para autenticación y gestión de sesiones integrada con Supabase.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Next.js</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">TypeScript</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">React</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Supabase</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Tailwind
+                                CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mt-4 border-t border-brand-200/60">
+                        <a href="https://github.com/Arreolax/SOPHIA-WEB#visi%C3%B3n-general" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-brand-600 transition-colors">
+                            <i class="ph ph-github-logo text-lg"></i>
+                            <span>Ver Repositorio en GitHub</span>
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- 6. EN DESARROLLO: Blog App -->
+                <article
+                    class="bg-gradient-to-br from-white to-brand-100 border border-brand-300/70 rounded-3xl p-5 md:p-6 flex flex-col justify-between hover:border-brand-400 hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl hover:shadow-brand-300/30 group">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="space-y-1">
+                                <span class="text-xs font-bold text-brand-600 uppercase tracking-wider block">Móvil &
+                                    Diario Personal</span>
+                                <h3
+                                    class="text-xl md:text-2xl font-bold text-brand-800 group-hover:text-brand-600 transition-colors">
+                                    Blog App</h3>
+                                <div class="pt-0.5">
+                                    <span
+                                        class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-200">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+                                        En desarrollo
+                                    </span>
+                                </div>
+                            </div>
+                            <div
+                                class="p-2 bg-brand-100 text-brand-600 rounded-xl group-hover:bg-brand-600 group-hover:text-white transition-colors shrink-0">
+                                <i class="ph ph-notebook text-xl"></i>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Aplicación móvil multiplataforma para llevar un diario personal de forma sencilla y visual,
+                            permitiendo registrar pensamientos acompañados de fotografías y recuerdos.
+                        </p>
+
+                        <ul class="space-y-1 text-xs text-slate-600 pt-1">
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Creación y edición de entradas de diario con carga de fotografías.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="ph ph-check-circle text-brand-500 text-sm shrink-0 mt-0.5"></i>
+                                <span>Autenticación de usuarios y acceso a hardware nativo mediante Capacitor.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Ionic</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Angular</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">Capacitor</span>
+                            <span
+                                class="px-2.5 py-0.5 bg-brand-200 text-brand-800 text-xs rounded-md font-medium">TypeScript</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 mt-4 border-t border-brand-200/60">
+                        <a href="https://github.com/GuadalupeVargas07/Blog_app_ionic" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-semibold text-ink hover:text-brand-600 transition-colors">
+                            <i class="ph ph-github-logo text-lg"></i>
+                            <span>Ver Repositorio en GitHub</span>
+                            <i class="ph ph-arrow-up-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             5. CONTACTO
+             ========================================== -->
+        <section id="contacto" class="max-w-4xl mx-auto px-4 sm:px-6 pb-12">
+            <div
+                class="bg-gradient-to-b from-brand-300/70 via-brand-100 to-white border border-brand-300 hover:border-brand-400 rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-xl shadow-brand-300/25 hover:shadow-2xl hover:shadow-brand-300/35 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+
+                <!-- Destello decorativo animado al hacer hover -->
+                <div
+                    class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-brand-400/20 rounded-full blur-3xl pointer-events-none group-hover:scale-125 transition-transform duration-500">
+                </div>
+
+                <div class="space-y-3 relative z-10">
+                    <h2
+                        class="title-accent text-3xl sm:text-4xl font-extrabold text-brand-900 group-hover:text-brand-700 transition-colors">
+                        ¿Trabajamos juntos?
+                    </h2>
+                    <p class="text-slate-600 max-w-lg mx-auto">
+                        Estoy abierta a oportunidades laborales, proyectos freelance y colaboraciones en código abierto.
+                    </p>
+                </div>
+
+                <!-- Iconos de contacto -->
+                <div class="flex flex-wrap items-center justify-center gap-4 pt-2 relative z-10">
+                    <!-- Correo -->
+                    <a href="mailto:s.vargas.isw@unipolidgo.edu.mx" aria-label="Correo Electrónico"
+                        title="Correo Electrónico"
+                        class="w-14 h-14 bg-white hover:bg-brand-600 text-brand-600 hover:text-white border border-brand-200 hover:border-brand-600 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-lg hover:shadow-brand-400/25 hover:-translate-y-1 transition-all duration-300">
+                        <i class="ph ph-envelope-simple text-2xl"></i>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="https://github.com/GuadalupeVargas07" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub" title="GitHub"
+                        class="w-14 h-14 bg-white hover:bg-brand-600 text-brand-600 hover:text-white border border-brand-200 hover:border-brand-600 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-lg hover:shadow-brand-400/25 hover:-translate-y-1 transition-all duration-300">
+                        <i class="ph ph-github-logo text-2xl"></i>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/yg_th1809" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram" title="Instagram"
+                        class="w-14 h-14 bg-white hover:bg-brand-600 text-brand-600 hover:text-white border border-brand-200 hover:border-brand-600 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-lg hover:shadow-brand-400/25 hover:-translate-y-1 transition-all duration-300">
+                        <i class="ph ph-instagram-logo text-2xl"></i>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/526185254689" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+                        title="WhatsApp"
+                        class="w-14 h-14 bg-white hover:bg-brand-600 text-brand-600 hover:text-white border border-brand-200 hover:border-brand-600 rounded-2xl flex items-center justify-center shadow-sm hover:shadow-lg hover:shadow-brand-400/25 hover:-translate-y-1 transition-all duration-300">
+                        <i class="ph ph-whatsapp-logo text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 py-8 text-center text-xs text-brand-200">
+        <p>© <span id="year"></span> Guadalupe Vargas</p>
+    </footer>
+
+    <script>
+        // Año actual en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Menú mobile
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>
